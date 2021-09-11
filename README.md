@@ -1,5 +1,9 @@
 # lixy
+This was built using,
 
+Framework:- nuxt (For SEO purposes, I chose Nuxt over Vue),
+IDE:-  Github codespace (It's like VScode but online, I'm a beta tester),
+Language:- Javascript (Wanted to use Typescript but the instructions said Javascript)
 ## Build Setup
 
 ```bash
