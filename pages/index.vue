@@ -1,6 +1,6 @@
 <template>
 <div class="w-full flex justify-center">
-  <div class="shadow">
+  <div v-if="show" class="shadow">
   <input id="y" v-model="row" type="number" placeholder="row: "
   class="relative outline-none rounded py-1 px-2 w-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline"
   />
@@ -8,8 +8,9 @@
   class="relative outline-none rounded py-1 px-2 w-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline"
   />
   <button class="bg-black text-white"  @click="create(row, column)">multiply</button>
-  <div id="container" v-html="tableData"></div>
+
   </div>
+   <div id="container" v-html="tableData"></div>
 
 </div>
 </template>
@@ -19,13 +20,14 @@ export default {
   name:"Home",
   data(){
     return{
+      show:true,
       row:'',
       column:'',
       tableData:''
     }
   },
   created(){
-this.create(10,10)
+this.create(30,30)
   },
   methods:{
     isPrime(num) {
@@ -33,24 +35,42 @@ this.create(10,10)
     if(num % i === 0) return false;
   return num > 1;
 },
+generatePrimeArray(num){
+const PrimeArray = []
+let counter = 0
+while(counter <= num){
+  if(this.isPrime(counter)){
+    PrimeArray.push(counter)
+  }
+  counter ++
+}
+return PrimeArray
+},
     create(x, y){
+     const row =[1, ...this.generatePrimeArray(x)];
+    const  column =[1, ...this.generatePrimeArray(y)];
+    console.log(row);
+    console.log(column);
       let tableBuilder = `<table class="neumorphic">`;
-      for(let i=1; i<=x;i++) {
-        if(this.isPrime(i)){
-        if(i === 1){
-          tableBuilder = tableBuilder + "<tr class='side'>";
-        }else{
-          tableBuilder = tableBuilder + "<tr>";
-        }
-        }
-       for (let j=1; j<=y; j++){
-            if(j === 1){
-           tableBuilder = tableBuilder + ("<td  class='side'>" + (j*i) + "</td>");
-        }else{
-           tableBuilder = tableBuilder + ("<td>" + (j*i) + "</td>");
-        }
 
-        }
+
+      for(let i=1; i<=row.length-1; i++) {
+           if(i===1){
+              tableBuilder = tableBuilder + "<tr class='side'>";
+         }else{
+            tableBuilder = tableBuilder + "<tr>";
+         }
+
+       for (let j=1; j<=column.length-1; j++){
+         if(j===1 && i ===1){
+            tableBuilder = tableBuilder + ("<td  class='side'>" + '*' + "</td>");
+         }else if(j===1){
+           tableBuilder = tableBuilder + ("<td  class='side'>" + (column[j-1]*row[i-1]) + "</td>");
+         }else{
+           tableBuilder = tableBuilder + ("<td >" + (column[j-1]*row[i-1]) + "</td>");
+         }
+
+       }
        tableBuilder = tableBuilder + "</tr>";
     }
       tableBuilder = tableBuilder + "</table>";
@@ -77,11 +97,12 @@ this.create(10,10)
 }
 
 table.neumorphic{
-  width: 600px;
+  width: 50vw;
   border-spacing: 0;
   color: #212121;
   text-align: center;
   overflow: hidden;
+  margin-top:2rem;
   box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
   -9px -9px 16px rgba(255, 255, 255, 0.6);
 }
@@ -127,6 +148,7 @@ table.neumorphic td:hover::after {
 }
 .side{
   background: #bdc4cd8f;
-  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6);
+  box-shadow:  9px 9px 16px rgba(163, 177, 198, 0.6);
+
 }
 </style>
