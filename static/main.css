@@ -1,0 +1,143 @@
+html,
+body {
+  font-size: 16px;
+  width: 100%;
+  height: 100vh;
+  background-color: #e0efec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+  -webkit-appearance: none;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(108, 121, 119, 0.44);
+  border: 2px solid #fff;
+  border-radius: 1rem;
+}
+
+#container {
+
+  width: 95vw;
+  overflow-x: auto;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+table.neumorphic{
+  width: 50vw;
+  border-spacing: 0;
+  color: #212121;
+  text-align: center;
+  margin-top:2rem;
+  overflow: hidden;
+  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+  -9px -9px 16px rgba(255, 255, 255, 0.879);
+}
+
+table.neumorphic th{
+  padding: 7px;
+}
+
+table.neumorphic>tbody>tr>td {
+  padding: 10px;
+  font-size: 14px;
+  position: relative;
+}
+
+
+table.neumorphic>tbody>tr:hover {
+  padding: 20px;
+  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.796),
+  -9px -9px 16px rgba(255, 255, 255, 0.807);
+}
+
+table.neumorphic tr td:first-child::before {
+  content: "";
+  position: absolute;
+  padding: 7px;
+  top: 0;
+  left: -5000px;
+  width: 10000px;
+  height: 100%;
+  z-index: -10;
+}
+
+table.neumorphic td:hover::after {
+  content: "";
+  position: absolute;
+  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.776),
+  -9px -9px 16px rgba(255, 255, 255, 0.869);
+  left: 0;
+  top: -5000px;
+  height: 10000px;
+  width: 100%;
+  z-index: -1;
+}
+.side{
+  background: #bdc4cd8f;
+  box-shadow:  9px 9px 16px rgba(163, 177, 198, 0.6);
+
+}
+
+
+/*  SWITCH  */
+.switch {
+  grid-column: 1/2;
+  display: grid;
+  grid-template-columns: repeat(2, -webkit-min-content);
+  grid-template-columns: repeat(2, min-content);
+  grid-gap: 3rem;
+  justify-self: center;
+}
+.switch input {
+  display: none;
+}
+.switch-container {
+  width: 6rem;
+}
+.switch-container label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 3rem;
+  box-shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #FFFFFF;
+  background: rgba(255, 255, 255, 0);
+  position: relative;
+  cursor: pointer;
+  border-radius: 1.6rem;
+}
+.switch-container label::after {
+  content: "";
+  position: absolute;
+  left: 0.4rem;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background: #9baacf;
+  transition: all 0.4s ease;
+}
+.switch-container label::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(330deg, #5b0eeb 0%, #6d5dfc 50%, #8abdff 100%);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+.switch input:checked  {
+  opacity: 1;
+}
+.switch input:checked  {
+  left: 57%;
+  background: grey;
+}

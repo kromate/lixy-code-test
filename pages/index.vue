@@ -1,5 +1,13 @@
 <template>
-<div class="w-full flex justify-center">
+<div class="w-full flex flex-col justify-center">
+  <div class="switch flex items-center">
+    <p v-if="show">show table input field</p>
+    <p v-else>Do not show table input field</p>
+      <div class="switch-container">
+        <input id="show-switch" v-model="show" type="checkbox">
+        <label for="show-switch"></label>
+      </div>
+  </div>
   <div v-if="show" class="shadow">
   <input id="y" v-model="row" type="number" placeholder="row: "
   class="relative outline-none rounded py-1 px-2 w-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline"
@@ -20,15 +28,22 @@ export default {
   name:"Home",
   data(){
     return{
-      show:false,
+      show:true,
       row:'',
       column:'',
       tableData:''
     }
   },
+  head () {
+    return {
+        link: [
+        { rel: 'stylesheet', href: './main.css' }
+      ]
+    }
+  },
   created(){
     // on create display a table of 10 prime number, check the readme for an alternate method
-this.create(300,300)
+this.create(30,30)
   },
   methods:{
     // this function checks a number to see if it is a prime number
@@ -91,71 +106,3 @@ return PrimeArray
 </script>
 
 
-<style >
-
-
-#container {
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
-  width: 95vw;
-  overflow-x: auto;
-}
-
-table.neumorphic{
-  width: 50vw;
-  border-spacing: 0;
-  color: #212121;
-  text-align: center;
-  margin-top:2rem;
-  overflow: hidden;
-  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
-  -9px -9px 16px rgba(255, 255, 255, 0.6);
-}
-
-table.neumorphic th{
-  padding: 7px;
-}
-
-table.neumorphic>tbody>tr>td {
-  padding: 10px;
-  font-size: 14px;
-  position: relative;
-}
-
-
-table.neumorphic>tbody>tr:hover {
-  padding: 20px;
-  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
-  -9px -9px 16px rgba(255, 255, 255, 0.6);
-}
-
-table.neumorphic tr td:first-child::before {
-  content: "";
-  position: absolute;
-  padding: 7px;
-  top: 0;
-  left: -5000px;
-  width: 10000px;
-  height: 100%;
-  z-index: -10;
-}
-
-table.neumorphic td:hover::after {
-  content: "";
-  position: absolute;
-  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
-  -9px -9px 16px rgba(255, 255, 255, 0.6);
-  left: 0;
-  top: -5000px;
-  height: 10000px;
-  width: 100%;
-  z-index: -1;
-}
-.side{
-  background: #bdc4cd8f;
-  box-shadow:  9px 9px 16px rgba(163, 177, 198, 0.6);
-
-}
-</style>
