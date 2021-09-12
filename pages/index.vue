@@ -1,6 +1,6 @@
 <template>
 <div class="w-full flex flex-col justify-center">
-  <div class="switch flex items-center">
+  <div class="switch flex items-center justify-center my-4">
     <p v-if="show">show table input field</p>
     <p v-else>Do not show table input field</p>
       <div class="switch-container">
@@ -9,11 +9,11 @@
       </div>
   </div>
   <div v-if="show" class="shadow">
-  <input id="y" v-model="row" type="number" placeholder="row: "
-  class="relative outline-none rounded py-1 px-2 w-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline"
+  <input id="y" v-model="row" type="number" placeholder="Enter Number of row"
+  class="form__input"
   />
-  <input id="x" v-model="column" type="number" placeholder="column: "
-  class="relative outline-none rounded py-1 px-2 w-full bg-white shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline"
+  <input id="x" v-model="column" type="number" placeholder="Enter Number of column"
+  class="form__input"
   />
   <button class="bg-black text-white"  @click="create(row, column)">multiply</button>
 
