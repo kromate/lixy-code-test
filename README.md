@@ -4,6 +4,11 @@ This was built using,
 Framework:- nuxt (For SEO purposes, I chose Nuxt over Vue),
 IDE:-  Github codespace (It's like VScode but online, I'm a beta tester),
 Language:- Javascript (Wanted to use Typescript but the instructions said Javascript)
+
+## Thought Process
+A create funtion takes in the number of rows and column and then passes it to anothor function that creates an array of prime numbers only for both the row and column
+**alternatively**
+I could just have created a function that creates an array of prime numbers based on inputed value
 ## Build Setup
 
 ```bash

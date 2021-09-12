@@ -20,13 +20,14 @@ export default {
   name:"Home",
   data(){
     return{
-      show:true,
+      show:false,
       row:'',
       column:'',
       tableData:''
     }
   },
   created(){
+    // on create display a table of 10 prime number, check the readme for an alternate method
 this.create(30,30)
   },
   methods:{
@@ -49,8 +50,7 @@ return PrimeArray
     create(x, y){
      const row =[1, ...this.generatePrimeArray(x)];
     const  column =[1, ...this.generatePrimeArray(y)];
-    console.log(row);
-    console.log(column);
+
       let tableBuilder = `<table class="neumorphic">`;
 
 
