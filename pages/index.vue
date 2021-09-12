@@ -28,14 +28,17 @@ export default {
   },
   created(){
     // on create display a table of 10 prime number, check the readme for an alternate method
-this.create(30,30)
+this.create(300,300)
   },
   methods:{
+    // this function checks a number to see if it is a prime number
     isPrime(num) {
   for(let i = 2; i < num; i++)
     if(num % i === 0) return false;
   return num > 1;
 },
+
+// This is the function that generates the prime array used in create
 generatePrimeArray(num){
 const PrimeArray = []
 let counter = 0
@@ -47,6 +50,8 @@ while(counter <= num){
 }
 return PrimeArray
 },
+
+// This creates the table by accepting a X and Y parameter, which is the start and end value of the table
     create(x, y){
      const row =[1, ...this.generatePrimeArray(x)];
     const  column =[1, ...this.generatePrimeArray(y)];
@@ -89,11 +94,13 @@ return PrimeArray
 <style >
 
 
-.container {
-  position: absolute;
+#container {
+  /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+  width: 95vw;
+  overflow-x: auto;
 }
 
 table.neumorphic{
@@ -101,8 +108,8 @@ table.neumorphic{
   border-spacing: 0;
   color: #212121;
   text-align: center;
-  overflow: hidden;
   margin-top:2rem;
+  overflow: hidden;
   box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
   -9px -9px 16px rgba(255, 255, 255, 0.6);
 }
