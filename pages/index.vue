@@ -11,10 +11,10 @@
   <div v-if="show" class="shadow flex flex-col justify-center items-center">
 
   <div class="w-full flex flex-wrap justify-center gap-3">
-  <input id="y" v-model="row" type="number" placeholder="Enter Number of row"
+  <input id="y" v-model="row" required type="number" placeholder="Enter Number of row"
   class="form__input"
   />
-  <input id="x" v-model="column" type="number" placeholder="Enter Number of column"
+  <input id="x" v-model="column" required type="number" placeholder="Enter Number of column"
   class="form__input"
   />
   </div>
@@ -71,6 +71,7 @@ return PrimeArray
 
 // This creates the table by accepting a X and Y parameter, which is the start and end value of the table
     create(x, y){
+
      const row =[1, ...this.generatePrimeArray(x)];
     const  column =[1, ...this.generatePrimeArray(y)];
 

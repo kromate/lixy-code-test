@@ -4,11 +4,24 @@ This was built using,
 Framework:- nuxt (For SEO purposes, I chose Nuxt over Vue),
 IDE:-  Github codespace (It's like VScode but online, I'm a beta tester),
 Language:- Javascript (Wanted to use Typescript but the instructions said Javascript)
+Test:- Jest was used for testing
 
 ## Thought Process
 A create funtion takes in the number of rows and column and then passes it to anothor function that creates an array of prime numbers only for both the row and column
 **alternatively**
 I could just have created a function that creates an array of prime numbers based on inputed value
+
+#### Things to consider (and that we will evaluate):
+##### How complex is your code?
+the less complex the better, I ensured I wrote easy to read and understand code
+##### How fast does your code run?
+Due to the time and the UI design implementation I didn't really have time to optimize the code, but the already available piece of code should run
+##### How does it scale?
+The application can easily scale to handle several request
+
+##### Is it reusable?
+This can easily be used to calculate both even, prime and normal multiplication tables with very small twerks
+
 ## Build Setup
 
 ```bash
