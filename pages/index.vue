@@ -8,14 +8,17 @@
         <label for="show-switch"></label>
       </div>
   </div>
-  <div v-if="show" class="shadow">
+  <div v-if="show" class="shadow flex flex-col justify-center items-center">
+
+  <div class="w-full flex flex-wrap justify-center gap-3">
   <input id="y" v-model="row" type="number" placeholder="Enter Number of row"
   class="form__input"
   />
   <input id="x" v-model="column" type="number" placeholder="Enter Number of column"
   class="form__input"
   />
-  <button class="bg-black text-white"  @click="create(row, column)">multiply</button>
+  </div>
+  <button class="btn btn__primary my-2"  @click="create(row, column)">Create</button>
 
   </div>
    <div id="container" v-html="tableData"></div>
